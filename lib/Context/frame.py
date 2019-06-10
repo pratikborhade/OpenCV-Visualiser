@@ -1,5 +1,6 @@
 import lib.Algorithms.ImageUtils as ImageUtils
 import lib.Algorithms.LocationCalculator as LocationCalculator
+import lib.GUI.FrameWindow
 import tkinter
 import cv2
 
@@ -22,7 +23,8 @@ class Frame:
         self.next_frames = []
 
     def show_frame(self):
-        cv2.imshow(self.name, self.img)
+        window = lib.GUI.FrameWindow.FrameWindow(self)
+        window.show()
 
     def register(self, root_window):
         global thumbnail_size
