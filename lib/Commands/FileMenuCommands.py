@@ -2,12 +2,13 @@ import tkinter
 import tkinter.filedialog
 import cv2
 import lib.GUI.guimain
-import lib.Context.frame
+import lib.Context.Frame
 
 
 def open_file():
     file = tkinter.filedialog.askopenfilename()
-    img = cv2.imread(file)
-    frame = lib.Context.frame.Frame(img)
+    frame = lib.Context.Frame.Frame()
+    frame.code = frame.variable_name + "=" + "cv2.imread('" + file + "')"
+    frame.update()
     frame.register(lib.GUI.guimain.main_window)
 
